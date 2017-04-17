@@ -22,3 +22,5 @@ done.
 <a href="http://www.aiedv.ch/downloads/download.php?f=HyperLinkBuilder_manual&ref=github" target="_blank">English manual</a>
 
 <a href="http://www.aiedv.ch/downloads/download.php?f=HyperLinkBuilder_manual_de&ref=github" target="_blank">Handbuch deutsch</a>
+
+[link](http://www.aiedv.ch/downloads/download.php?f=HyperLinkBuilder_manual_de&ref=github){:target="_blank"}
