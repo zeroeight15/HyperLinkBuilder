@@ -27,4 +27,4 @@ done.
 
 
 ## License
-[GPL V3](gpl-3.0-md)
+[GPL V3](gpl-3.0.md)
