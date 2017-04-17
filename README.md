@@ -25,3 +25,6 @@ done.
 
 <a href="http://www.aiedv.ch/downloads/download.php?f=HyperLinkBuilder_manual_de&ref=github" target="_blank">Handbuch deutsch</a>
 
+
+## License
+[GPL V3](gpl-3.0-md)
