@@ -14,4 +14,6 @@ Create:
 These Hyperlinks also work in interactive PDF files.
 
 ## Installation
-Download the repository to your local machine.
+1. Download the repository to your local machine by clicking the [ Clone or download ] button.
+2. Copy the folder named "HyperLinkBuilder" to your InDesign's "Scripts" panel folder.
+done.
