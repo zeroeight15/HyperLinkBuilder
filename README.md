@@ -8,5 +8,7 @@ Convert any text styled with a given Character Style to a HyperLink URL or email
 Create:
 - URL Hyperlinks
 - Email Hyperlinks
+- Link part numbers to a shop
+- and more...
 
 These Hyperlinks also work in interactive PDF files.
