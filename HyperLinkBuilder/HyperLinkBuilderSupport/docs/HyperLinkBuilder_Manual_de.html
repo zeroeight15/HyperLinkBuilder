@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HyperLinkBuilder Handbuch</title>
+<meta name="author" content="aiedv.ch">
+<meta name="keywords" content="indesign, Hyperlink, build, create, javascript, extendscript">
+<style type="text/css">
+* {
+	font-family:"Tahoma","Verdana","Arial",sans-serif;
+	font-size:10pt;
+	color:#555;
+}
+.body {
+	width:600px;
+	margin:0 auto 0 auto;
+	padding-left:15px; padding-right:15px;
+	border-left:1px dotted #bbb; border-right:1px dotted #bbb;
+}
+.doctitle {
+	font-size:20pt; font-weight:bold;
+}
+.title {
+	font-size:16pt; font-weight:bold;
+	margin-top:35px;
+	margin-bottom:8px;
+}
+.subtitle {
+	font-size:12pt; font-weight:bold;
+	margin-top:35px;
+	margin-bottom:8px;
+}
+.txt {
+}
+.dialog {
+	width:450px;
+	padding:8px;
+	background-color:#ddd;
+}
+.dialogtbl {
+	width:100%;
+}
+.lcol {
+	width:60px;
+}
+.pop {
+	width:300px;
+	margin-top:3px; margin-bottom:3px;
+	padding:2px; padding-left:6px;
+	background-color:white;
+	border:1px solid #999;
+	border-bottom:2px solid #aaa;
+	display:inline-block;
+}
+.poper {
+	width:16px;
+	margin-top:3px; margin-bottom:3px;
+	padding:2px; padding-left:6px;
+	position:relative;
+	background-color:#B5B6FF;
+	border:1px solid #999;
+	border-bottom:2px solid #aaa;
+	display:inline-block;
+}
+.bgwhite {
+	background-color:white;
+}
+.head {
+	text-align:center;
+}
+.logo {
+	margin-top:15px;
+}
+.clear {
+	clear:both;
+}
+</style>
+</head>
+
+<body class="body">
+<div class="head">
+	<img class="logo" src="HB-logo_350x149_tiny.png" alt="HyperLinkBuilder logo"><br>
+	<br>
+	<div class="doctitle">HyperLinkBuilder Manual</div>
+	<br>
+	HyperLinkBuilder.jsx<br>
+	Javascript für InDesign CC, CS6, CS5.5, CS5<br>
+	Von www.aiedv.ch<br>
+</div>
+
+<div class="clear"></div>
+<br>
+<a href="HyperLinkBuilder_Manual_en.html" title="English Manual">English</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="HyperLinkBuilder_Manual_fr.html" title="Manuel français">Français</a>&nbsp;<br>
+<br>
+HyperLinkBuilder.jsx<br>
+Javascript für InDesign CC, CS6, CS5.5, CS5<br>
+
+<div class="subtitle">ZWECK:</div>
+Konvertiert beliebigen Text der mit einer bestimmten Zeichenstilvorlage markiert ist zu klickbaren Internet Links oder zu Email-Links.<br>
+Automatische Kreation von:<br>
+- URL Hyperlinks<br>
+- Email Hyperlinks<br>
+Diese Hyperlinks funktionieren auch in interaktiven PDF Dateien.<br>
+
+
+
+<div class="title">Kreieren von Hyperlinks</div>
+
+<div class="subtitle">Internet-Adressen konvertieren:</div>
+Diese Einstellungen:<br>
+<div class="dialog">
+	Text zu Links konvertieren der markiert ist mit:<br>
+	<div class="pop">URL</div><div class="poper">^</div><br>
+	<table class="dialogtbl">
+	<tr>
+		<td class="lcol">Vor:</td><td class="bgwhite">http://</td>
+	</tr>
+	<tr>
+		<td colspan="2">+'gefundener Text'+</td>
+	</tr>
+	<tr>
+		<td>Nach:</td><td class="bgwhite"></td>
+	</tr>
+	</table>
+</div>
+konvertieren Text, wenn markiert mit der Zeichenstilvorlage 'URL',<br>
+zu klickbaren Links zu externen Webseiten.<br>
+Der gestylte Text kann in den folgenden Formen vorkommen:<br>
+aiedv.ch<br>
+www.aiedv.ch<br>
+http://aiedv.ch<br>
+http://www.aiedv.ch<br>
+<br>
+Der Ziellink in InDesign wird so aussehen:<br>
+http://www.aiedv.ch<br>
+
+
+<div class="subtitle">Convert Email Addresses:</div>
+Diese Einstellungen:<br>
+<div class="dialog">
+	Text zu Links konvertieren der markiert ist mit:<br>
+	<div class="pop">email</div><div class="poper">^</div><br>
+	<table class="dialogtbl">
+	<tr>
+		<td class="lcol">Vor:</td><td class="bgwhite">mailto:</td>
+	</tr>
+	<tr>
+		<td colspan="2">+'gefundener Text'+</td>
+	</tr>
+	<tr>
+		<td>Nach:</td><td class="bgwhite">?subject=Betrefftext: </td>
+	</tr>
+	</table>
+</div>
+konvertieren Text, wenn markiert mit der Zeichenstilvorlage 'email',<br>
+zu klickbaren Email-Links die das Emailprogramm des lokalen Computers starten.<br>
+Die Betreffzeile wird ausgefüllt mit 'Betrefftext: '<br>
+Der gestylte Text kann in dieser Form vorkommen:<br>
+ai@aiedv.ch<br>
+<br>
+Der Ziellink in InDesign wird so aussehen:<br>
+mailto:ai@aiedv.ch?subject=Betrefftext: <br>
+
+
+<div class="subtitle">Internet-Adressen mit Parameter:</div>
+Beispiel: Artikel-Aufrufe in einen Online-Shop wie 'ShopWare'.<br>
+Diese Einstellungen:<br>
+<div class="dialog">
+	Text zu Links konvertieren der markiert ist mit:<br>
+	<div class="pop">ArtikelNum</div><div class="poper">^</div><br>
+	<table class="dialogtbl">
+	<tr>
+		<td class="lcol">Vor:</td><td class="bgwhite">http://www.mydomain.com/shop/shopware.php/sViewport,checkout/sAction,addArticle/sAdd,A</td>
+	</tr>
+	<tr>
+		<td colspan="2">+'gefundener Text'+</td>
+	</tr>
+	<tr>
+		<td>Nach:</td><td class="bgwhite"></td>
+	</tr>
+	</table>
+</div>
+konvertieren Text, wenn markiert mit der Zeichenstilvorlage 'ArtikelNum',<br>
+zu klickbaren Links zu externen Webseiten.<br>
+Nehmen wir an, dass der gestylte Text Artikelnummern sind wie z.B. '123-45678'<br>
+<br>
+Der Ziellink in InDesign wird so aussehen:<br>
+http://www.mydomain.com/shop/shopware.php/sViewport,checkout/sAction,addArticle/sAdd,A123-45678<br>
+Dies legt den Artikel 123-45678 direkt in den Warenkorb.<br>
+
+
+
+
+
+<div class="title">Existierende Hyperlinks aufräumen</div>
+Hyperlinks die bereits in InDesign definiert sind können 'bereinigt' werden.<br>
+- Entfernen von verwaisten URL Ziellinks<br>
+- Entfernen ALLER momentan definierten Hyperlinks<br>
+<br>
+Die Einstellungen im Bereich 'Hyperlinks aufräumen' sind auch effektiv BEVOR die neuen Hyperlinks kreiert werden.<br>
+Mit einem Klick auf den 'Hyperlinks aufräumen' Button wird nur die 'Bereinigung' ausgeführt.<br>
+
+
+
+
+
+<div class="title">Speichern und Laden von Einstellungen</div>
+Die aktuell angezeigten Einstellungen können auf der Disk für den späteren Gebrauch gespeichert werden.<br>
+Die Standard-Einstellungen in der Datei 'settings.set' werden immer geladen bevor der Hauptdialog angezeigt wird.<br>
+Falls Sie immer mit einer bestimmten Einstellung starten möchten, speichern Sie diese Einstellungen mit Namen 'settings.set'.<br>
+<br>
+Der 'Einstellungen speichern' Button:<br>
+Geben sie der Einstellungsdatei einen Namen der die Einstellungen gut beschreibt.<br>
+<br>
+Der 'Einstellungen laden' Button:<br>
+Einmal gespeicherte Einstellungen können zur erneuten Ausführung wieder geladen werden.<br>
+<br>
+Einstellungen werden im Ordner 'HyperLinkBuilderSupport' im Benutzerverzeichnis auf der Startdisk gespeichert.<br>
+
+<br><br>
+<div class="title">Die DEMO-Version:</div>
+Die DEMO Version überspringt ca. 20% aller gestylten Texte die zu Hyperlinks konvertiert werden könnten.<br>
+
+<br><br>
+<div class="subtitle">AUSSCHLUSS:</div>
+Absolut keine Garantie.<br>
+<br>
+Autor: Andreas Imhof, ©www.aiedv.ch
+<br>
+</body>
+</html>
