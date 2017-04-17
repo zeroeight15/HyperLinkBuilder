@@ -17,3 +17,5 @@ These Hyperlinks also work in interactive PDF files.
 1. Download the repository to your local machine by clicking the [ Clone or download ] button.
 2. Copy the folder named "HyperLinkBuilder" to your InDesign's "Scripts" panel folder.
 done.
+
+<a href="http://www.aiedv.ch/downloads/download.php?f=HyperLinkBuilder_manual&ref=github" target="_blank">Read the manual</a>
