@@ -13,4 +13,5 @@ Create:
 
 These Hyperlinks also work in interactive PDF files.
 
-[Read the manual](docs/HyperLinkBuilder_Manual_en.html)
+## Installation
+Download the repository to your local machine.
