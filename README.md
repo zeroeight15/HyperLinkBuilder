@@ -12,3 +12,6 @@ Create:
 - and more...
 
 These Hyperlinks also work in interactive PDF files.
+
+Download the HyperLinkBuilder scripts:
+[Get the Script package](docs/HyperLinkBuilderSupport/HyperLinkBuilder_Manual_en.html)
