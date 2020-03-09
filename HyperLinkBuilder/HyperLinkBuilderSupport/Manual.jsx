@@ -17,7 +17,6 @@ var getAppLanguageCode = function () {
 appLanguageCode = getAppLanguageCode();
 //appLanguageCode = "de";
 
-// does not work on some new OSX versions:  var man_path = getScriptsPath() + "/docs/HyperLinkBuilder_Manual_" + appLanguageCode + ".html";
-var man_path = getScriptsPath() + "/docs/";
-f = new File(man_path);
+f = new File(getScriptsPath() + "/docs/HyperLinkBuilder_Manual_" + appLanguageCode + ".html");
+//alert(f.fsName);
 f.execute();

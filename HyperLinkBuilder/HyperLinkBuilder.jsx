@@ -1,14 +1,27 @@
 /**
  * HyperLinkBuilder.jsx
  * Caller for HyperLinkBuilder.jsxbin
- * Javascript for InDesign CC(xxxx), CS6, CS5.5, CS5
- * Version date: 20170417
+ * Javascript for InDesign CC, CS6, CS5.5, CS5
+ * Version date: 20150616
  *
  * PURPOSE:
  * ===========
- * Convert any text styled with a given Character Style to a HyperLink URL
- * like URLs, email or part numbers
- * Hyperlinks also work in PDF files.
+ * Split one or more stories at one or more selected paragraph styles or at the insertion pointer
+ *
+ * DISCLAIMER:
+ * ===========
+ * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED.  IN NO EVENT SHALL THE PRODUCER OR
+ * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
  *
  * AUTHOR:
  * ===========
@@ -16,31 +29,21 @@
  * EDV-Dienstleistungen
  * CH-Guemligen, Switzerland
  * www.aiedv.ch
- * Copyright 2015-2017
+ * CopyRight 2015
  *
- * DISCLAIMER:
- * ===========
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
- *
+ * This is NOT free software!
  */
 #target "InDesign"
 #targetengine "HyperLinkBuilder"
 
-scriptFile = new File(getScriptsPath() + "/HyperLinkBuilderSupport/HyperLinkBuilder.jsx")
+var scriptFile = new File(getScriptsPath() + "/HyperLinkBuilderSupport/HyperLinkBuilder.jsxbin");
+
 if (scriptFile.exists == false) {
-	alert("HyperLinkBuilder main script not found!\nReinstall the HyperLinkBuilder package.");
-	exit(0);
+	scriptFile = new File(getScriptsPath() + "/HyperLinkBuilderSupport/HyperLinkBuilder.jsx")
+	if (scriptFile.exists == false) {
+		alert("HyperLinkBuilder binary script not found!\nReinstall the HyperLinkBuilder package.");
+		exit(0);
+	}
 }
 
 // call main HyperLinkBuilder script
