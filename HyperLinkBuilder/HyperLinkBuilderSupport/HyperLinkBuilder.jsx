@@ -1,36 +1,40 @@
 /*
  * HyperLinkBuilder.jsx
- * Javascript for InDesign CC(xxxx), CS6, CS5.5, CS5
- * Version date: 20170417
+ * Javascript for InDesign CC, CS6, CS5.5, CS5
+ * Version date: 20200309
  *
  * PURPOSE:
  * ========
  * Convert any text styled with a given Character Style to a HyperLink URL
- * like URLs, email or part numbers
+ * - URL links
+ " - email links
  * Hyperlinks also work in PDF files.
+ *
+ * DISCLAIMER:
+ * ===============
+ * THIS SOFTWARE IS PROVIDED ``AS IS'' AND ANY EXPRESSED OR IMPLIED
+ * WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
+ * OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
+ * DISCLAIMED.  IN NO EVENT SHALL THE PRODUCER OR
+ * ITS CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+ * SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+ * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF
+ * USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
+ * ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY,
+ * OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
+ * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF
+ * SUCH DAMAGE.
  *
  * AUTHOR:
  * ===========
  * Andreas Imhof
- * EDV-Dienstleistungen
- * CH-Guemligen, Switzerland
- * www.aiedv.ch
- * Copyright 2015-2017
+ * ai@aiedv.ch
  *
- * DISCLAIMER:
- * ===============
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- * 
- * This program is distributed in the hope that it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- * 
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <http://www.gnu.org/licenses/>.
+ * This is free software!
+ * License: GPL3
+ *
+ * HISTORY:
+ * 20200309 v2.0	New Lizense: GPL3
  * 
  */
  
@@ -97,8 +101,8 @@ var  HyperLinkBuilder = function() {
 		Product = {
 			applicationName: "HyperLinkBuilder",
 			productShortcut: "HBid",
-			version: "10",
-			versionStr: "10.0",				// human readable version string
+			version: "02",
+			versionStr: "2.0",				// human readable version string
 			sub_version: "0",				// any free fixes: a sub-version
 			copyRight: "©www.AiEDV.ch"
 		},
@@ -125,6 +129,7 @@ var  HyperLinkBuilder = function() {
 		};
 		scriptsPath = getScriptsPath();	// in case where getScriptsPath is called from a handler app.activeScript is undefined
 		//alert("init scriptsPath: " + scriptsPath);
+
 
 	settingsFilePath = "~/" + Product.applicationName + "Support";	// define default settings path
 
@@ -340,6 +345,7 @@ var  HyperLinkBuilder = function() {
 	var haveCallerScript = false,
 
 	main = function (func, theSettingsFileName, noDialog, silent) {
+
 
 		if ( (typeof(func) != 'undefined') && (func == 0) ) return;	// do nothing - just stay loaded
 		appLanguageCode = getAppLanguageCode(app.locale);
@@ -590,7 +596,7 @@ var  HyperLinkBuilder = function() {
 
 	set_mainDialogTitle = function() {
 		if (HB_wrk.dlgw == null) return;
-		var windowTitle = Product.applicationName + " v" + Product.versionStr + "    '" +  settingsFileName + "'    " + Product.copyRight;
+		var windowTitle = Product.applicationName + " v" + Product.versionStr  + "    '" +  settingsFileName;
 		//alert(windowTitle);
 		HB_wrk.dlgw.text = windowTitle;
 		},
@@ -1068,19 +1074,6 @@ var  HyperLinkBuilder = function() {
 						HB_wrk.dlgw.row2.rightGroup.silentCheck.helpTip = loc(62);	// Don't show messages
 
 
-			// ad licensing button
-			if (typeof(Licensing) != 'undefined') {
-			HB_wrk.dlgw.row4 = HB_wrk.dlgw.add('group');
-				HB_wrk.dlgw.row4.orientation = 'row';
-				HB_wrk.dlgw.row4.alignment = ['right','top'];
-
-					HB_wrk.dlgw.row4.rightGroup = HB_wrk.dlgw.row4.add('group');
-						HB_wrk.dlgw.row4.rightGroup.orientation = 'column';
-						HB_wrk.dlgw.row4.rightGroup.alignment = ['right','top'];
-						HB_wrk.dlgw.row4.rightGroup.alignChildren = ['right','top'];
-						HB_wrk.dlgw.row4.rightGroup.spacing = 15;
-						HB_wrk.dlgw.row4.margins = [7,7,37,7];
-			}
 
 
 		/*
@@ -1200,6 +1193,14 @@ var  HyperLinkBuilder = function() {
 		// add dialog event listeners
 		addDialogEventListeners();
 
+
+		if (typeof(Licensing) != 'undefined') {
+			// License click
+			HB_wrk.dlgw.row4.rightGroup.licenseBtn.onClick = function() {
+				showLicence();	// in the 'Licensing' function
+			}
+		}
+
 		go = HB_wrk.dlgw.show();	// a palette immediately exits and stays open, returns 0
 		//alert("go: " + go);	// always returns 0
 		HB_wrk.isopen = true;
@@ -1240,6 +1241,7 @@ var  HyperLinkBuilder = function() {
 		totalCONVERTEDlinks = 0;
 
 		for (i = foundTexts.length - 1; i >= 0; i--) {
+
 			linkadded = true;
 
 			try {
@@ -1746,6 +1748,7 @@ var  HyperLinkBuilder = function() {
 		return(err);
 	};
 
+
 	if (!Array.prototype.indexOf) {
 		Array.prototype.indexOf = function(obj, start) {
 			for (var i = (start || 0), j = this.length; i < j; i++) {
@@ -1773,6 +1776,15 @@ var  HyperLinkBuilder = function() {
 
 	//main();
 	//main(1,"settings.set",0,0);
+
+
+
+
+
+
+
+
+
 
 
 }; // the wrapping function is NOT executed now!
