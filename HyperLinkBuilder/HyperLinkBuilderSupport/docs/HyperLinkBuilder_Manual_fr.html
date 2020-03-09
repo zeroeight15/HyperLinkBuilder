@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head lang="fr">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>HyperLinkBuilder Manuel</title>
+<meta name="author" content="aiedv.ch">
+<meta name="keywords" content="indesign, Hyperlink, build, create, javascript, extendscript">
+<style type="text/css">
+* {
+	font-family:"Tahoma","Verdana","Arial",sans-serif;
+	font-size:10pt;
+	color:#555;
+}
+.body {
+	width:600px;
+	margin:0 auto 0 auto;
+	padding-left:15px; padding-right:15px;
+	border-left:1px dotted #bbb; border-right:1px dotted #bbb;
+}
+.doctitle {
+	font-size:20pt; font-weight:bold;
+}
+.title {
+	font-size:16pt; font-weight:bold;
+	margin-top:35px;
+	margin-bottom:8px;
+}
+.subtitle {
+	font-size:12pt; font-weight:bold;
+	margin-top:35px;
+	margin-bottom:8px;
+}
+.txt {
+}
+.dialog {
+	width:450px;
+	padding:8px;
+	background-color:#ddd;
+}
+.dialogtbl {
+	width:100%;
+}
+.lcol {
+	width:60px;
+}
+.pop {
+	width:300px;
+	margin-top:3px; margin-bottom:3px;
+	padding:2px; padding-left:6px;
+	background-color:white;
+	border:1px solid #999;
+	border-bottom:2px solid #aaa;
+	display:inline-block;
+}
+.poper {
+	width:16px;
+	margin-top:3px; margin-bottom:3px;
+	padding:2px; padding-left:6px;
+	position:relative;
+	background-color:#B5B6FF;
+	border:1px solid #999;
+	border-bottom:2px solid #aaa;
+	display:inline-block;
+}
+.bgwhite {
+	background-color:white;
+}
+.head {
+	text-align:center;
+}
+.logo {
+	margin-top:15px;
+}
+.clear {
+	clear:both;
+}
+</style>
+</head>
+
+<body class="body">
+<div class="head">
+	<img class="logo" src="HB-logo_350x149_tiny.png" alt="HyperLinkBuilder logo"><br>
+	<br>
+	<div class="doctitle">HyperLinkBuilder Manual</div>
+	<br>
+	HyperLinkBuilder.jsx<br>
+	Javascript pour InDesign CC, CS6, CS5.5, CS5<br>
+	De www.aiedv.ch<br>
+</div>
+
+<div class="clear"></div>
+<br>
+<a href="HyperLinkBuilder_Manual_en.html" title="English Manual">English</a>&nbsp;&nbsp;&nbsp;&nbsp;<a href="HyperLinkBuilder_Manual_de.html" title="Deutsches Manual">Deutsch</a>&nbsp;<br>
+<br>
+HyperLinkBuilder.jsx<br>
+Javascript pour InDesign CC, CS6, CS5.5, CS5<br>
+
+<div class="subtitle">PURPOSE:</div>
+Convertir n'importe quel texte URL stylé avec un style de caractère à un lien hypertexte ou lien e-mail.<br>
+Création des:<br>
+- Hyperliens d'URL<br>
+- Hyperliens Email<br>
+Ces hyperliens fonctionnent également dans des fichiers PDF interactifs.<br>
+
+
+
+<div class="title">Création d'hyperliens</div>
+
+<div class="subtitle">Convertir les adresses web:</div>
+Ces paramètres:<br>
+<div class="dialog">
+	Convertir en hyperliens le texte qui est de style de caractère:<br>
+	<div class="pop">URL</div><div class="poper">^</div><br>
+	<table class="dialogtbl">
+	<tr>
+		<td class="lcol">Avant:</td><td class="bgwhite">http://</td>
+	</tr>
+	<tr>
+		<td colspan="2">+'texte trouvé'+</td>
+	</tr>
+	<tr>
+		<td>Apres:</td><td class="bgwhite"></td>
+	</tr>
+	</table>
+</div>
+vous permet de convertir du texte stylé avec le style de caractère 'URL' <br>
+au liens valide cliquables vers des sites Web externes.<br>
+Le texte dans InDesign peut-être de ces types:<br>
+aiedv.ch<br>
+www.aiedv.ch<br>
+http://aiedv.ch<br>
+http://www.aiedv.ch<br>
+<br>
+Les hyperliens dans InDesign ressemblera à ceci:<br>
+http://www.aiedv.ch<br>
+
+
+<div class="subtitle">Convertir les adresses de courriel:</div>
+Ces paramètres:<br>
+<div class="dialog">
+	Convertir en hyperliens le texte qui est de style de caractère:<br>
+	<div class="pop">email</div><div class="poper">^</div><br>
+	<table class="dialogtbl">
+	<tr>
+		<td class="lcol">Avant:</td><td class="bgwhite">mailto:</td>
+	</tr>
+	<tr>
+		<td colspan="2">+'texte trouvé'+</td>
+	</tr>
+	<tr>
+		<td>Apres:</td><td class="bgwhite">?subject=concerne: </td>
+	</tr>
+	</table>
+</div>
+vous permet de convertir du texte stylé avec le style de caractère 'email' <br>
+au liens valide cliquables vers des adresses email.<br>
+Le sujet est présélectionné avec 'concerne: '.<br>
+Le texte dans InDesign peut-être de ce type uniquement:<br>
+ai@aiedv.ch<br>
+<br>
+Les hyperliens dans InDesign ressemblera à ceci:<br>
+mailto:ai@aiedv.ch?subject=concerne: <br>
+
+
+<div class="subtitle">Convertir les adresses Web avec des paramètres:</div>
+Exemple: création d'article remet en une boutique en ligne comme «ShopWare».<br>
+Ces paramètres:<br>
+<div class="dialog">
+	Convertir en hyperliens le texte qui est de style de caractère:<br>
+	<div class="pop">ArticleNum</div><div class="poper">^</div><br>
+	<table class="dialogtbl">
+	<tr>
+		<td class="lcol">Avant:</td><td class="bgwhite">http://www.mydomain.com/shop/shopware.php/sViewport,checkout/sAction,addArticle/sAdd,A</td>
+	</tr>
+	<tr>
+		<td colspan="2">+'texte trouvé'+</td>
+	</tr>
+	<tr>
+		<td>Apres:</td><td class="bgwhite"></td>
+	</tr>
+	</table>
+</div>
+vous permet de convertir du texte stylé avec le style de caractère 'URL' <br>
+au liens valide cliquables vers des sites Web externes.<br>
+Supposons, les parties de texte stylisé sont des numéros d'article comme '123-45678'<br>
+<br>
+Les hyperliens dans InDesign ressemblera à ceci:<br>
+http://www.mydomain.com/shop/shopware.php/sViewport,checkout/sAction,addArticle/sAdd,A123-45678<br>
+Cela va pousser l'article 123-45678 directement dans le panier.<br>
+
+
+
+
+
+<div class="title">Rangement liens existants</div>
+Hyperliens déjà définis dans InDesign peuvent être «nettoyées».<br>
+- supprimer orphelins liens cibles d'URL<br>
+- supprimer tous les liens hypertextes actuellement définies<br>
+<br>
+Les paramètres dans le panneau 'Ranger hyperliens' sont également efficaces avant de créer les nouveaux liens.<br>
+En cliquant sur​le bouton "Ranger Hyperliens» effectue un «nettoyage» seulement.<br>
+
+
+
+
+
+<div class="title">Stockage et du rechargement des paramètres</div>
+Les paramètres actuellement affichés peuvent être stockés sur le disque pour une utilisation ultérieure.<br>
+Le fichier de paramètres par défaut 'settings.set' est toujours chargé avant d'afficher la boîte de dialogue principale.<br>
+Si vous voulez toujours les mêmes paramètres au démarrage, mémoriser vos paramètres préférés comme 'settings.set'.<br>
+<br>
+Appuyer sur le bouton 'Enregistrer paramètres':<br>
+Donnez les paramètres un nom auto-description lorsque vous êtes demandé le nom des paramètres.<br>
+<br>
+En appuyant sur le bouton 'Charger paramètres':<br>
+Les paramètres précédemment enregistrés peuvent être rechargés et exécutés.<br>
+<br>
+Les paramètres sont stockés dans un dossier nommé «HyperLinkBuilderSupport» dans le dossier de départ de l'utilisateur sur le disque de démarrage.<br>
+
+
+<br><br>
+<div class="subtitle">DÉNÉGATION:</div>
+Absolument aucune garantie.<br>
+<br>
+Auteur: Andreas Imhof, ©www.aiedv.ch
+<br>
+</body>
+</html>
